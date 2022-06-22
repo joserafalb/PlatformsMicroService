@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/jose/projects/microservice/s4/e3/CommandsService/CommandsService.csproj": {}
+    "/Users/jose.lopez/Documents/Projects/PlatformsMicroService/CommandsService/CommandsService.csproj": {}
   },
   "projects": {
-    "/home/jose/projects/microservice/s4/e3/CommandsService/CommandsService.csproj": {
+    "/Users/jose.lopez/Documents/Projects/PlatformsMicroService/CommandsService/CommandsService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jose/projects/microservice/s4/e3/CommandsService/CommandsService.csproj",
+        "projectUniqueName": "/Users/jose.lopez/Documents/Projects/PlatformsMicroService/CommandsService/CommandsService.csproj",
         "projectName": "CommandsService",
-        "projectPath": "/home/jose/projects/microservice/s4/e3/CommandsService/CommandsService.csproj",
-        "packagesPath": "/home/jose/.nuget/packages/",
-        "outputPath": "/home/jose/projects/microservice/s4/e3/CommandsService/obj/",
+        "projectPath": "/Users/jose.lopez/Documents/Projects/PlatformsMicroService/CommandsService/CommandsService.csproj",
+        "packagesPath": "/Users/jose.lopez/.nuget/packages/",
+        "outputPath": "/Users/jose.lopez/Documents/Projects/PlatformsMicroService/CommandsService/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/jose/.nuget/NuGet/NuGet.Config"
+          "/Users/jose.lopez/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -97,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
         }
       }
     }

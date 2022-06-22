@@ -8,13 +8,21 @@ namespace CommandsService.Data
         public static void PrepPopulation(IApplicationBuilder applicationBuilder)
         {
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
-            {
-                var grpcClient = serviceScope.ServiceProvider.GetService<IPlatformDataClient>();
+                {
+                //    var grpcClient = serviceScope.ServiceProvider.GetService<IPlatformDataClient>();
 
-                var platforms = grpcClient.ReturnAllPlatforms();
+                //    var platforms = grpcClient.ReturnAllPlatforms();
 
+                //    SeedData(serviceScope.ServiceProvider.GetService<ICommandRepo>(), platforms);
+
+                List<Platform> platforms = new List<Platform>();
+                platforms.Add(new Platform() { Id = '1', Name = "Test Platform", ExternalId = 1 });
+                
                 SeedData(serviceScope.ServiceProvider.GetService<ICommandRepo>(), platforms);
             }
+
+            
+
         }
 
         private static void SeedData(ICommandRepo repo, IEnumerable<Platform> platforms)
@@ -23,10 +31,10 @@ namespace CommandsService.Data
 
             foreach (var platform in platforms)
             {
-                if (!repo.ExternalPlatformExists(platform.ExternalId))
-                {
+                //if (!repo.ExternalPlatformExists(platform.ExternalId))
+                //{
                     repo.CreatePlatform(platform);
-                }
+                //}
                 repo.SaveChanges();
             }
         }

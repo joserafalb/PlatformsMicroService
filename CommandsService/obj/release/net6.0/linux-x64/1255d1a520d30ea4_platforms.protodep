@@ -1,0 +1,2 @@
+obj/release/net6.0/linux-x64/Protos/Platforms.cs \
+obj/release/net6.0/linux-x64/Protos/PlatformsGrpc.cs: Protos/platforms.proto

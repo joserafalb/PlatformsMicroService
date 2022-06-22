@@ -14,11 +14,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddScoped<IPlatformDataClient, PlatformDataClient>();
+// builder.Services.AddScoped<IPlatformDataClient, PlatformDataClient>();
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
 builder.Services.AddScoped<ICommandRepo, CommandRepo>();
-builder.Services.AddHostedService<MessageBusSubscriber>();
-builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
+// builder.Services.AddHostedService<MessageBusSubscriber>();
+// builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
