@@ -1,13 +1,25 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+#Base Image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
+EXPOSE 80
+EXPOSE 443
 
-COPY *.csproj ./
-RUN dotnet restore
+#Multi Stage Pipeline 
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY ["CommandsService/CommandsService.csproj", "CommandsService/"]
+RUN dotnet restore "CommandsService/CommandsService.csproj"
+RUN touch testsample.txt
+COPY . .
+WORKDIR "/src/CommandsService"
+RUN dotnet build "CommandsService.csproj" -c Release -o /app/build
 
-COPY . ./
-RUN dotnet publish -c Release -o out
+FROM build AS publish
+RUN dotnet publish "CommandsService.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
+FROM base AS final
 WORKDIR /app
-COPY --from=build-env /app/out .
-ENTRYPOINT [ "dotnet", "CommandsService.dll" ]
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "CommandsService.dll"]
