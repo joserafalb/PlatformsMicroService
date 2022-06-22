@@ -6,10 +6,10 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-#Multi Stage Pipeline 
+#Multi Stage Pipeline
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["CommandsService/CommandsService.csproj", "CommandsService/"]
+COPY ["CommandsService.csproj", "CommandsService/"]
 RUN dotnet restore "CommandsService/CommandsService.csproj"
 RUN touch testsample.txt
 COPY . .
